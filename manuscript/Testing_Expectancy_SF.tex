@@ -1,0 +1,415 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  jou]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Surprise! Low Testing Expectancy Moderates the Sans Forgetica Effect},
+  pdfauthor={Jason Geller1,2 \& Kelly A. Kane3},
+  pdflang={en-EN},
+  pdfkeywords={Disfluency},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Testing Expectancy and Sans Forgetica}
+\keywords{Disfluency\newline\indent Word count: 3500}
+\usepackage{dblfloatfix}
+
+
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
+\title{Surprise! Low Testing Expectancy Moderates the Sans Forgetica Effect}
+\author{Jason Geller\textsuperscript{1,2} \& Kelly A. Kane\textsuperscript{3}}
+\date{}
+
+
+\authornote{
+
+Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+Enter author note here.
+
+Correspondence concerning this article should be addressed to Jason Geller, Rutgers University Center for Cognitive Science (RuCCS), 152 Frelinghuysen Road, Busch Campus, Piscataway, New Jersey 08854. E-mail: \href{mailto:jason.geller@ruccs.rutgers.edu}{\nolinkurl{jason.geller@ruccs.rutgers.edu}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} University of Iowa\\\textsuperscript{2} Rutgers University Center for Cognitive Science\\\textsuperscript{3} Glenville State College}
+
+\abstract{
+Recent work examining the mnemonic effects of Sans Forgetica has yiedled discrepant findings. To clarify this discrepancy, the present experiemnts examined a boudnary condition that determines when Sans Forgetica is and and is not beneficial to learning. This boundary condition is knowledge about an upcoming test (high test expectancy) versus not (low test expectancy). This boundary condition was tested across two experiments. In Experiment 1 (pre-regsitered, \emph{N} = 231), Sans Forgetica eliciated lower judgements of learning and longer study times, but only improved improved memory on a yes/no recognition test when there was low test expectancy (compared to a high test expectancy group). In Experiment 2 (\emph{N} = 116) using only a low test expectancy design, we found a similar pattern of results to Experiment 1 using a cued recall test. Taken together, Sans Forgetica can be a desirable difficulty, but only when testing expectancy is low. However, caution should be taken in intreprting these results. Not only was the effect size small, but low testing expectancy is not educationally realistic. Echocing previous failures to replicating the Sans Forgetica effect, students wanting to remember more and forget less should stick to other desirable difficultues shown to enhance memory.
+}
+
+
+
+\begin{document}
+\maketitle
+
+The influential desirable difficulty principle claims that making learning harder not easier, such as having students retrieve information previously studied, can have noticeable and lasting impacts on student achievement (Bjork \& Bjork, 2011; see Sotola \& Crede, 2020 for a recent meta-analysis). Recently, the concept of desirable difficulties has been extended to include subtle perceptual manipulations that are difficult to encode (e.g., atypical fonts, blurring, handwritten cursive; {\textbf{???}}; Geller et al., 2018; Rosner, Davis, \& Milliken, 2015; Yue, Castel, \& Bjork, 2013). One such manipulation garnering increased attention is Sans Forgetica. Sans Forgetica is a typeface developed by a team of psychologists, graphic designers, and marketers, consisting of intermittent gaps and black-slanted letters (Earp, 2018). The disfluent perceptual characteristics of the typeface are purported to stave off forgetting and enhance learning. The claims surrounding Sans Forgetica have lead to extensive press coverage from major news outlets (NPR, Washington Post), and lead to browswer extensions and OS applications that allows users to place content in the typeface. As the famous astronomer Carl Sagan once said, "Extraordinary claims require extraordinary evidence (Sagan, 1980).
+
+There is a growing evidence that perceptual disfluency manipulations are simply not desirable for learning (Xie, Zhou, \& Liu, 2018). Does the same hold true for Sans Forgetica? In two independent studies, Taylor, Sanson, Burnell, Wade, and Garry (2020) and Geller, Davis, and Peterson (2020) set out to examine whether Sans Forgetica is \emph{really} a desirable difficulty. In the first conceptual replications of the Sans Forgetica effect, Taylor et al. (2020), found (in a sample of 882 people across 4 experiments) that while Sans Forgetica was perceived as more disfluent by participants (Experiment 1) there was no evidence that Sans Forgetica yielded a mnemonic boost in cued recall with highly related word pairs (Experiment 2) compared to a fluent typeface (Arial) or when learning simple prose passages (Experiments 3-4). Extending these findings, Geller et al. (2020) conducted three pre-registered experiments (with over 800 participants), and found, similar to Taylor et al. (2020), that Sans Forgetica does not enhance learning for weakly related word pairs (Experiment 1), a complex prose passage on ground water (Experiment 2), or when the type of test was changed to a recognition memory test (Experiment 3). Taken together, across two independent replication attempts, and over a 1000 participants, there is weak evidence for Sans Forgetica as a desirable difficulty.
+
+Despite these findings, some evidence for the effectiveness of the Sans Forgetica typeface does exist. For instance, Eskenazi and Nix (2020) found that Sans Forgetica can enhance learning. In their study, they had participants learn the spelling and meaning for 15 low-frequency words each presented in the context of two sentences. Both orthographic discriminabity (i.e., choosing the correct spelling of a word) and semantic acquisition (i.e., retrieving the definition of a word) were assessed. The authors reported a memory benefit for both orthographic discrimnability and semantics for words presented in Sans Forgetica compared to a normal (Courier) typeface, but only for participants that were good spellers.
+
+The mixed findings reported above suggest mnemonic benefit of Sans Forgetica may be fickle, with positive effects potentially bounded by specific conditions. Probing into the design features of Eskenazi and Nix (2020), a critical difference between their study and ({\textbf{???}}) and Geller et al. (2020) is testing expectancy. Eskenazi and Nix (2020) did did not tell participants about the upcoming tests. Thus, one common design feature that may moderate whether we see a Sans Forgetica effect is high testing expectancy. Eitel and Kühl (2016) posited that testing expectancy may be an important moderator of the perceptual disfluency effect. They reasoned that if the disfluency effect arises because of deeper, more effortful, processing, telling participants about a memory test should eliminate the effect. This occurs because testing expectancy would countervail the effects of perceptual disfluency by eliciting additional processing for both fluent and disfluent stimuli. In contrast, low testing expectancy is less likely to impact processing of individual items,leaving effects of processing difficulty intact. \href{mailto:While@Eitel2016}{\nolinkurl{While@Eitel2016}} found evidence for a general testing expectancy effect (better memory for high vs.~low testing expectancy) they not find evidence for a moderated disfluency effect. Following up on this, Geller and Still (2018), using a masking disfluency manipulation, demonstrated in a yes/no recognition memory test that indeed only under low testing expectancy does a disfluency effect occur. Given this, it is possible, then, that a Sans Forgetica effect might arise when participants have low test expectancy.
+
+\hypertarget{experiment-1}{%
+\section{Experiment 1}\label{experiment-1}}
+
+Experiment 1 examined whether the positive effects of Sans Forgetica are moderated by testing expectancy. Using a yes/no recognition memory test, we manipulated testing expectancy by telling half the participants about the upcoming memory test while for the other half being surreptitious about the upcoming memory test.In addition, we collected aggregate judgments of learning (i.e., a subjective memory prediction about future memory performance taken after all items are studied) and study times. We preregistered that if participants were not told about a memory test we would see a memory boot for Sans Forgetica stimuli,but not if they were told about a memory test. For JOLs,we predicted that we would not see JOL differences as function of typeface or testing expectancy. In terms of reading times, we predicted we would see longer study times for Sans Forgetica, but only in the low testing expectancy condition. These predictions are based on Geller et al. (2020) (Experiments 2 and 3).
+\# Method
+
+Sample size, experimental design, hypotheses, outcome measures, and analysis plan for Experiment 1 were can be found on the Open Science Framework (\url{https://osf.io/wgp9d}). All raw and summary data, materials, and R scripts for pre-processing, analysis, and plotting can be found at \url{https://osf.io/d2vy8/}.
+
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
+
+We preregistered a sample size of 230. All participants were recruited through prolific (prolific.co), and completed the study on the Gorilla platform {[}www.gorilla.sc; Anwyl-Irvine2020{]}. The sample size was based off a previous experiment (Geller et al. (2020), Experiment 1), wherein they calculated power to detect a medium sized interaction effect (\emph{d} = 0.35) using a similar design to the current study. After data collection had ended we had a total of 231 participants. Participants completed the experiment in return for U.S.\$8.00 an hour.
+
+\hypertarget{materials}{%
+\subsubsection{Materials}\label{materials}}
+
+Stimuli were 188 single-word nouns taken from Geller et al.~(2018). All words were from the English Lexicon Project database (Balota et al., 2007). Both word frequency (all words were high frequency; mean log HAL frequency = 9.2) and length (all words were four letters) were controlled. The full set of stimuli can be found at \url{https://osf.io/dsxrc/}.
+
+\hypertarget{design}{%
+\subsubsection{Design}\label{design}}
+
+Per our pre-registration, d', JOLs, and study times were analyzed with a 2 (Typeface: Arial vs.~Sans Forgetica ) x 2 (Testing Expectancy: High vs.~Low) mixed analysis of variance (ANOVA).
+
+\hypertarget{procedure}{%
+\subsubsection{Procedure}\label{procedure}}
+
+Similar to Geller et al. (2020) (Experiment 3), four lists (94 words each; 47 in each typeface condition) were used to create the stimuli for a total of 188 words. Ninety-four words from the two of the lists were presented in both the study and test phases and were consider \enquote{old}, while the 94 words from the other two lists were presented only in the test phase and were considered \enquote{new.} Words were counterbalanced across the typeface and study/test conditions, such that each word served equally often as a target and a foil in both typefaces across participants. The four word lists were counterbalanced across participants, so that
+each list was assigned to each role (old/new, Arial/Sans Forgetica) an equal number of times. Word order was completely randomized, such that Arial and Sans Forgetica words were randomly intermixed in the study phase, and Arial and Sans Forgetica old and new words were randomly intermixed in the test phase, with old words always presented in the same typeface at test as they were at study.
+
+The main difference between the current experiment and Geller et al. (2020) (Experiment 3) is that participants were randomly assigned to one of two conditions: the high expectancy test condition or the low expectancy test condition. Interested readers can view the entire task including instructions for each condition by following these links (High Test Expectancy experiment \url{https://gorilla.sc/openmaterials/72765}; Low test expectancy experiment: \url{https://gorilla.sc/openmaterials/116227}).
+
+The experiment proper consisted of four phases: a study phase,JOL phase, distractor phase, and test phase. During the study phase, a fixation cross appeared at the center of the screen for 500 ms. The fixation cross was immediately replaced by a word in teh same location. To continue to the next trial, participants pressed the continue button at the bottom of the screen. Each trial was self-paced. After the study phase, participants completed a short three-minute distractor task wherein they wrote down as many U.S. state capitals as they could. Afterward, participants took an old-new recognition test. During the test phase, a word appeared in the center of the screen that either had been presented during study (\enquote{old}) or had not been presented during study (\enquote{new}). Old words occurred in their original typeface, and following the counterbalancing procedure, each new word was presented in Arial typeface or Sans Forgetica typeface. For each word presented, participants chose from one of two boxes displayed on the screen: a box labeled \enquote{old} to indicate that they had studied the word during study, and a box labeled \enquote{new} to indicate they did not remember studying the word. Sans Forgetica Words stayed on the screen until participants gave an \enquote{old} or \enquote{new} response. All words were individually randomized for each participant during both the study and test phases. After the experiment, participants were debriefed.
+
+\hypertarget{analytic-strategy}{%
+\subsubsection{Analytic Strategy}\label{analytic-strategy}}
+
+A variation of Cohen's d (\emph{d}\textsubscript{avg}) and generalized eta-squared (\(\eta_{g}^{2}\)\}; {\textbf{???}}) are used as effect size measures. Alongside traditional analyses that utilize null hypothesis significance testing (NHST), we also report the Bayes factors (BFs) for reported null effects. A Bayes Factor \textgreater{} = 3 will be deemed as moderate evidence for null; BF \textgreater{} =10 strong evidence for the null. All data were analyzed in R (vers. 4.0.2; R Core Team, 2020), with models fit using the afex (vers. 0.27-2; Singmann, Bolker, Westfall, Aust, and Ben-Shachar (2020)) and BayesFactor packages (vers. 0.9.12-4.2; Morey and Rouder (2018)). All figures were generated using ggplot2 (vers. 3.3.0; Wickham, 2006).
+
+\hypertarget{results-and-discussion}{%
+\subsection{Results and Discussion}\label{results-and-discussion}}
+
+\hypertarget{recognition-memory}{%
+\paragraph{Recognition Memory}\label{recognition-memory}}
+
+Performance was examined with d', a memory sensitivity measure derived from signal detection theory (Macmillan \& Creelman, 2005). The proportions of \enquote{old} responses for old/new items are displayed in Fig. 1. Hits or false alarms at ceiling or floor were changed to .99 or .01. Sensitivity (d') values be seen in Figure 2a. The analys revealed that participants that were told about a memory test had better discrimination than those not told about a memory test (0.88 vs.~0.72),\emph{M} \textsubscript{diff} = 0.16,\emph{F}(1, 229) = 4.11, \(\eta_{g}^{2}\) = .014, p = .044. Individuals were better at discriminating target words presented in Sans Forgetica than Arial (0.86 vs.~0.74),\emph{M} \textsubscript{diff} = 0.12, \emph{F}(1, 229) = 10.73, \(\eta_{g}^{2}\) =.010, \emph{p} = .001. This was qualified by an interaction between Test Expectancy and Typeface, \emph{F}(1, 229) = 4.34, \(\eta_{g}^{2}\) = .004, \emph{p} = .038. Simple effects showed that individuals in the low expectancy group showed better recognition memory for words presented in Sans Forgetica font compared to Arial, \emph{F}(1, 229) = 14.297, \emph{p} \textless{} .001, \emph{d} = 0.31. In the high test expectancy group, there were no differences between the two typefaces, \emph{F}(1, 229) = 0.716, \emph{p} = .398, BF\textsubscript{O1} = 5.83.
+
+\#High Testing Data Load
+
+\#Combine
+
+\begin{verbatim}
+## # A tibble: 462 x 11
+##    participant_pri~ condition1 testexpect    cr    fa   hit  miss    hr     zhr
+##               <int> <chr>      <chr>      <int> <dbl> <int> <int> <dbl>   <dbl>
+##  1          1531474 Arial      low           37 0.213    21    26 0.447 -0.134 
+##  2          1531474 Sans Forg~ low           36 0.234    20    27 0.426 -0.188 
+##  3          1531487 Arial      low           25 0.468    20    27 0.426 -0.188 
+##  4          1531487 Sans Forg~ low           26 0.447    23    24 0.489 -0.0267
+##  5          1531488 Arial      low           40 0.149    20    27 0.426 -0.188 
+##  6          1531488 Sans Forg~ low           34 0.277    32    15 0.681  0.470 
+##  7          1531494 Arial      low           47 0.01     42     5 0.894  1.25  
+##  8          1531494 Sans Forg~ low           47 0.01     42     5 0.894  1.25  
+##  9          1531503 Arial      low           30 0.362    18    29 0.383 -0.298 
+## 10          1531503 Sans Forg~ low           12 0.745    32    15 0.681  0.470 
+## # ... with 452 more rows, and 2 more variables: zfa <dbl>, dprime <dbl>
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics{Testing_Expectancy_SF_files/figure-latex/unnamed-chunk-8-1} 
+
+}
+
+\caption{Raincloud plots (Allen et al., 2019) depicting raw data (dots), box plots, and half violin kernel desntiy plots, with mean (red dot). Proportion of “old” responses as a function of Test Expectancy for Experiment 1.}\label{fig:unnamed-chunk-8}
+\end{figure}
+
+\hypertarget{jols}{%
+\subsubsection{JOLs}\label{jols}}
+
+Seven participants did not provide JOls to each typeface. We did not analyze the data for those participants. Using the same model as above, participants in the high testing expectancy group had higher JOLs than those in the low testing group (), \emph{F}(1,221) = 16.01, \(\eta_{g}^{2}\) = .065, \emph{p} \textless{} .001. Arial elicited higher JOls than Sans Forgetica (61.5 vs.~57.5), \emph{M} \textsubscript{diff} = 4.0, \emph{F}(1,221) = 27.05, \(\eta_{g}^{2}\) = .004, \emph{p} \textless{} .001. There was no interaction between Testing Expectancy and Typeface, \emph{F}(1,221) = 0.13, \(\eta_{g}^{2}\) \textless{} .001, \emph{p} = .715. Compared to a main effects-only model, there was strong evidence for no interaction, BF\textsubscript{01} = 7.28.
+
+\hypertarget{study-times}{%
+\subsubsection{Study Times}\label{study-times}}
+
+Although not pre-registered, study times less than 200 ms and reaction times greater than 2.5 SD above the mean per condition for each participant were removed. This outlier procedure removed \textasciitilde3 \% of the data. Given the heavy positive skew of the data, we log transformed study times to better approximate a normal distribution(see Fig.1C). Evidene for testing expectancy effects on log-transformed study times were inconclusive, \emph{F}(1,229) = 1.97, \(\eta_{g}^{2}\) = .008, \emph{p} = .162, BF = 1.822. Typeface did influence study times: study times were slower for Sans Forgetica than Arial, \emph{F}(1,229) = 30.91, \(\eta_{g}^{2}\) = .001, \emph{p} \textless{} .001. There was no interaction between Testing Expectancy and Typeface, \emph{F}(1,229) = 1.10, \(\eta_{g}^{2}\) \textless{} .001, \emph{p} = .296. Compared to a main effects-only model, there was strong evidence that there was no interaction between Testing Expectancy and Typeface, BF\textsubscript{01} = 5.25.
+
+\hypertarget{dicussion}{%
+\subsection{Dicussion}\label{dicussion}}
+
+The results from Experiment1 are clear-cut. As predicted, memory sensitivity for Sans Forgetica was higher when testing expectancy was low, but not when testing expectancy was high. This suggests that one potential reason for Taylor et al. (2020) and Geller et al. (2020) failing to find a Sans Forgetica effect was high test expectancy. This finding replicates what Geller and Still (2018) found with a masking manipulation. We also found that participants gave lower JOLs to stimuli studied in the Sans Forgetica typeface. These findings are inconsistent with the predictions pre-registered, and contradict the findings of Geller et al. (2020) (Experiment 2) and Taylor et al. (2020) (Experiment 1). One reason for this is that in the current experiment, a within-subject manipulation of typeface was used whereas in Geller et al. (2020) (Experiment 2) and Taylor et al. (2020) (Experiment 1) used a between-subjects typeface manipulation.The finding of lower JOls to disfluent stimuli compared to more fluent stimuli is inline with other studies using a within-participant manipulation of fluency (Besken and Mulligan (2013); Geller et al. (2018); Rhodes and Castel (2008); Rhodes and Castel (2009) Besken and Mulligan (2013)). In relation to study times, we found that participants studied Sans Forgetica stimuli longer than Arial, regardless of test expectancy. This contradicts the null finding of Geller et al. (2020) (Experiment 3). It is important, however, that the examination of study times in Geller et al. (2020) were unplanned, and purely exploratory, making it hard to draw firm conclusions about the effect fo Sans Forgetica on study times.
+
+In Experiment 2, we attempt to replicate these findings using a different criterion test: cued recall. Using a similar design to Taylor et al. (2020) we examined cued recall accuracy, JOLs, and study times.
+
+\begin{figure}
+
+{\centering \includegraphics{Testing_Expectancy_SF_files/figure-latex/unnamed-chunk-15-1} 
+
+}
+
+\caption{Raincloud plots (Allen et al., 2019) depicting raw data (dots), box plots, and half violin kernel desntiy plots.A.Memory sensitivity (d') as a function of Typeface and Testing Expectancy. B. Judgements of Learning as a function of Typeface and Test Expectany. C. Study times (log transformed) as a function of Typeface and Test Expextancy. Raincloud plots (Allen et al., 2019) depicting raw data (dots), box plots, and half violin kernelViolin plots represent the kernal density of avearge accuracy (black dots) with the mean (white dot)}\label{fig:unnamed-chunk-15}
+\end{figure}
+
+\hypertarget{experiment-2}{%
+\section{Experiment 2}\label{experiment-2}}
+
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
+
+\hypertarget{participants-1}{%
+\subsubsection{Participants}\label{participants-1}}
+
+One hundred and sixteen participants (\emph{N} = 116) participated through Prolific for U.S. \$2.43. All participants were native English speakers with normal or corrected-to-normal vision. A sensitivity analysis conducted with the R package pwr(Champely, 2020) indicated that our sample size provided 90\% power to detect a small effect size (d = 0.16) or larger.
+
+\hypertarget{design-1}{%
+\subsubsection{Design}\label{design-1}}
+
+Cued recall accuracy, JOLs, and reading times to Typefaces (Sans Forgetica vs.~Arial) with a paired \emph{t}-test.
+
+\hypertarget{materials-and-procedure}{%
+\subsubsection{Materials and Procedure}\label{materials-and-procedure}}
+
+The materials were adopted from Taylor el al.~(2020, Experkment 2). Twenty highly associated word paris, were used (taken from the University of Florida norms).
+
+Similar to Experiment 1, Experiment 2 consisted of four phases, and was administered online through the gorilla.sc platform. The entire experiment can be run by following the following link: \url{https://gorilla.sc/openmaterials/116224}. During phase 1, participants were presented with a series of 20 word pairs, presented one at time. Participants were told to press the continue button after they had read each word. Half of the word pairs were presented in
+Sans Forgetica and half in Arial. We created two versions of the word pair list, so that each cue-target pair was presented in each typeface across participants. All counterbalanced lists contained the same word pairs. In Phase 2, participants were presented with the same distractor task as Experiment 1. Finally, in the third phase of the experiment, participants' memory for the word pairs was tested by presenting the first word of the pair they studied during phase 1 and asking them to type the second word of that pair into a box. We presented the memory test in a font not tied to the stud phase so as not to reinstate context at test. The cued words presented during Phase 1 were presented one-by-one, in a random order.
+
+\hypertarget{scoring}{%
+\subsubsection{Scoring}\label{scoring}}
+
+To score typed responses during the cued recall phase, we used the lrd package in R (Nicholas P. Maxwell, 2020). The lrd package provides an automated way to score word responses. A partial match of 80\% was used to determine whether a typed response was correct or not.
+
+\hypertarget{results-and-discussion-1}{%
+\subsection{Results and Discussion}\label{results-and-discussion-1}}
+
+\hypertarget{cued-recall}{%
+\subsubsection{Cued Recall}\label{cued-recall}}
+
+With low testing expectancy, performance was better when words were presented in Sans Forgetica (47\% vs.~42\%), \emph{M}\textsubscript{diff} = 5\%, \emph{t}(115) = 2.363, \emph{SE} = 0.046, \emph{p} = .020, 95 CI\% {[}0.008, 0.090{]}, \emph{d}\textsubscript{avg} = 0.18. See fig 2a.
+
+\hypertarget{jols-1}{%
+\subsubsection{JOLs}\label{jols-1}}
+
+The analysis of JOls revealed that Partcipants' JOLs were lower for Sans Forgetica than Arail (65.83 vs.~70.84), \emph{M} \textsubscript{diff} = -5.02, \emph{t}(108) = -3.12, \emph{SE} = 1.61, 95 CI\% {[}0.030, 0.114{]}, \emph{p} = .002, \emph{d}\textsubscript{avg} = 0.15. See fig 2a.
+
+\hypertarget{reaction-times}{%
+\subsubsection{Reaction Times}\label{reaction-times}}
+
+Similar to Experiment 1, we excluded reaction times less than 200 ms and reaction times greater than 2.5 SD above the mean per condition for each participant. The outlier procedure removed \textasciitilde{} 3\% of the data. We also log transformed the data (see Fig.1C for reaction time data). An analysis of study time using a paired \emph{t}-test on mean log RTs revleaved that study times were longer for Sans Forgetica than Arial (7.58 vs.~7.51), \emph{M} \textsubscript{diff} = 0.072, \emph{t} = 3.40, \emph{SE} = 236, \emph{p} \textless{} .001, 95 CI\% {[}0.030, 0.114{]}, \emph{d}\textsubscript{avg} = 0.13.
+
+Using a cued recall test, we have again showed that if test expectancy is low, Sans Forgetica can constitue a desirable difficulty. We obersved a 5\% increase when participants studied cue-target pairs in Sans Forgetica. Further, we also showed that again Sans Forgetica produced lower JOls and leads to longer study times.
+
+\begin{figure}
+
+{\centering \includegraphics{Testing_Expectancy_SF_files/figure-latex/unnamed-chunk-20-1} 
+
+}
+
+\caption{Raincloud plots (Allen et al., 2019) depicting raw data (dots), box plots, and half violin kernel desntiy plots.A.Memory sensitivity (d') as a function of Typeface and Testing Expectancy. B. Judgements of Learning as a function of Typeface and Test Expectany. C. Study times (log transformed) as a function of Typeface and Test Expextancy. Raincloud plots (Allen et al., 2019) depicting raw data (dots), box plots, and half violin kernelViolin plots represent the kernal density of avearge accuracy (black dots) with the mean (white dot)}\label{fig:unnamed-chunk-20}
+\end{figure}
+
+\hypertarget{general-discussion}{%
+\section{General Discussion}\label{general-discussion}}
+
+The present experiments focused on examining whether testing expectancy serves as boundary condition to the Sans Forgetica desirable difficulty effect. Specifically, it was assumed that if Sans Forgetica is a desirable difficulty, it fosters learning by increasing mental effort and by stimulating deeper processing - but only when students are endangered to process materials superficially. When students study in preparation for an upcoming test(high test expectancy), they invest mental effort and take their time to elaborate on all context, regardless of whether the to-be-learned information is fluent or disfluent. However, when students do not expect a test (low test expectancy), they might choose to study the text they deem more difficult as suggested by the discrepancy-reduction model ({\textbf{???}}). This would lead to a desirable effect of Sans Forgetica on memory.
+
+In line with this, Experiment 1, using a yes/no recognition memory test, revealed a desirable effect of Sans Forgetica only when participants were not told about an upcoming memory test. In Experiment 2, using a low testing expectancy design, cued recall performance was significantly higher for Sans Forgetica than Arial. Furthermore, in both experiments Sans Forgetica produced lower JOLs and longer study times overall thereby suggesting that Sans Forgetica is perceptually disflunent(see @ for eye-tracking evidence of this). Taken together, it appears that testing expectancy is a powerful moderating factor. That is, high test expectancy has the ability to countervail the positive effects of Sans Forgetica.
+
+This finding is in accordance with with other perceptual disfluency manipulations shown to enhance memory (e..g, masking, handwritten cursive) While it might be tempting to use this evidence for the use of Sans Forgetica as a study tool, these results need to interpreted with caution. First, looking at the mnemonic effect sizes (Experiment 1: d = .18; Experiment 2: d = .25), it is clear that these effects are quite small. It is unclear if these effects would replicate in an educational setting where effect sizes are a known to be a lot smaller (). Second, the finding that Sans Forgetica is only beneficial to memory under low test expectancy makes it educationally unrealistic. Students always know about upcoming tests, except in the case of surprise quizzes. More genearlly, this finding draws into question the general utility of disfluency effects. All the studies mentioned did had low testing expectancy. It is unclear if some perceptual disfluency manipulations are more robust than others. Future research should examine this.
+
+Taken together, while we show positive effects of Sans Forgetica on memory, it is not advised that students utilize it as a study tool.
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Balota2007}{}%
+Balota, D. A., Yap, M. J., Cortese, M. J., Hutchison, K. A., Kessler, B., Loftis, B., \ldots{} Treiman, R. (2007). The english lexicon project. Springer New York LLC. \url{https://doi.org/10.3758/BF03193014}
+
+\leavevmode\hypertarget{ref-Besken2013}{}%
+Besken, M., \& Mulligan, N. W. (2013). Easily perceived, easily remembered? Perceptual interference produces a double dissociation between metamemory and memory performance. \emph{Memory and Cognition}, \emph{41}(6), 897--903. \url{https://doi.org/10.3758/s13421-013-0307-8}
+
+\leavevmode\hypertarget{ref-Bjork2011}{}%
+Bjork, E. L., \& Bjork, R. A. (2011). Making things hard on yourself, but in a good way: Creating desirable difficulties to enhance learning. In \emph{Psychology and the real world: Essays illustrating fundamental contributions to society.} (pp. 56--64). New York, NY, US: Worth Publishers.
+
+\leavevmode\hypertarget{ref-Champely2020}{}%
+Champely, S. (2020). \emph{Pwr: Basic functions for power analysis}. Retrieved from \url{https://CRAN.R-project.org/package=pwr}
+
+\leavevmode\hypertarget{ref-Earp2018}{}%
+Earp, J. (2018). Q\&A: Designing a font to help students remember key information.
+
+\leavevmode\hypertarget{ref-Eitel2016}{}%
+Eitel, A., \& Kühl, T. (2016). Effects of disfluency and test expectancy on learning with text. \emph{Metacognition and Learning}, \emph{11}(1), 107--121. \url{https://doi.org/10.1007/s11409-015-9145-3}
+
+\leavevmode\hypertarget{ref-Eskenazi2020}{}%
+Eskenazi, M. A., \& Nix, B. (2020). Individual Differences in the Desirable Difficulty Effect During Lexical Acquisition. \emph{Journal of Experimental Psychology: Learning Memory and Cognition}. \url{https://doi.org/10.1037/xlm0000809}
+
+\leavevmode\hypertarget{ref-Geller2020}{}%
+Geller, J., Davis, S. D., \& Peterson, D. J. (2020). Sans Forgetica is not desirable for learning. \emph{Memory}. \url{https://doi.org/10.1080/09658211.2020.1797096}
+
+\leavevmode\hypertarget{ref-cogsci18-Geller}{}%
+Geller, J., \& Still, M. L. (2018). Testing expectancy, but not judgements of learning, moderate the disfluency effect. In J. Z. Chuck Kalish Martina Rau \& T. Rogers (Eds.), \emph{CogSci 2018} (pp. 1705--1710).
+
+\leavevmode\hypertarget{ref-Geller2018}{}%
+Geller, J., Still, M. L., Dark, V. J., \& Carpenter, S. K. (2018). Would disfluency by any other name still be disfluent? Examining the disfluency effect with cursive handwriting. \emph{Memory and Cognition}, \emph{46}(7), 1109--1126. \url{https://doi.org/10.3758/s13421-018-0824-6}
+
+\leavevmode\hypertarget{ref-Macmillan2005}{}%
+Macmillan, N. A., \& Creelman, C. D. (2005). \emph{Detection theory: A user's guide, 2nd ed.} (pp. xix, 492--xix, 492). Mahwah, NJ, US: Lawrence Erlbaum Associates Publishers.
+
+\leavevmode\hypertarget{ref-Morey2018}{}%
+Morey, R. D., \& Rouder, J. N. (2018). \emph{BayesFactor: Computation of bayes factors for common designs}. Retrieved from \url{https://CRAN.R-project.org/package=BayesFactor}
+
+\leavevmode\hypertarget{ref-Maxwell2020}{}%
+Nicholas P. Maxwell, E. M. B., Mark J. Huff. (2020). \emph{Lrd: A package for processing lexical response data}.
+
+\leavevmode\hypertarget{ref-Rhodes2008}{}%
+Rhodes, M. G., \& Castel, A. D. (2008). Memory Predictions Are Influenced by Perceptual Information: Evidence for Metacognitive Illusions. \emph{Journal of Experimental Psychology: General}, \emph{137}(4), 615--625. \url{https://doi.org/10.1037/a0013684}
+
+\leavevmode\hypertarget{ref-Rhodes2009}{}%
+Rhodes, M. G., \& Castel, A. D. (2009). Metacognitive illusions for auditory information: Effects on monitoring and control. \emph{Psychonomic Bulletin and Review}, \emph{16}(3), 550--554. \url{https://doi.org/10.3758/PBR.16.3.550}
+
+\leavevmode\hypertarget{ref-Rosner2015}{}%
+Rosner, T. M., Davis, H., \& Milliken, B. (2015). Perceptual blurring and recognition memory: A desirable difficulty effect revealed. \emph{Acta Psychologica}, \emph{160}, 11--22. \url{https://doi.org/10.1016/j.actpsy.2015.06.006}
+
+\leavevmode\hypertarget{ref-Sagan1980}{}%
+Sagan, C. (1980). \emph{Broca's brain: Reflections on the romance of science}. Retrieved from \url{https://books.google.com/books?hl=en\%7B/\&\%7Dlr=\%7B/\&\%7Did=GlXPqexwO28C\%7B/\&\%7Doi=fnd\%7B/\&\%7Dpg=PR4\%7B/\&\%7Dots=65nePfKWk5\%7B/\&\%7Dsig=CTTgqKJLaozsFvFqBYjBd\%7B/_\%7DEOkxE}
+
+\leavevmode\hypertarget{ref-Singmann2020}{}%
+Singmann, H., Bolker, B., Westfall, J., Aust, F., \& Ben-Shachar, M. S. (2020). \emph{Afex: Analysis of factorial experiments}. Retrieved from \url{https://CRAN.R-project.org/package=afex}
+
+\leavevmode\hypertarget{ref-Sotola2020}{}%
+Sotola, L. K., \& Crede, M. (2020). Regarding Class Quizzes: a Meta-analytic Synthesis of Studies on the Relationship Between Frequent Low-Stakes Testing and Class Performance. \emph{Educational Psychology Review}, 1--20. \url{https://doi.org/10.1007/s10648-020-09563-9}
+
+\leavevmode\hypertarget{ref-Taylor2020}{}%
+Taylor, A., Sanson, M., Burnell, R., Wade, K. A., \& Garry, M. (2020). Disfluent difficulties are not desirable difficulties: the (lack of) effect of Sans Forgetica on memory. \emph{Memory}, 1--8. \url{https://doi.org/10.1080/09658211.2020.1758726}
+
+\leavevmode\hypertarget{ref-Xie2018}{}%
+Xie, H., Zhou, Z., \& Liu, Q. (2018). Null Effects of Perceptual Disfluency on Learning Outcomes in a Text-Based Educational Context: a Meta-analysis. \emph{Educational Psychology Review}, \emph{30}(3), 745--771. \url{https://doi.org/10.1007/s10648-018-9442-x}
+
+\leavevmode\hypertarget{ref-Yue2013}{}%
+Yue, C. L., Castel, A. D., \& Bjork, R. A. (2013). When disfluency is-and is not-a desirable difficulty: The influence of typeface clarity on metacognitive judgments and memory. \emph{Memory and Cognition}, \emph{41}(2), 229--241. \url{https://doi.org/10.3758/s13421-012-0255-8}
+
+\endgroup
+
+
+\end{document}
